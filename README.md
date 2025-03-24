@@ -1,6 +1,32 @@
 # green-growth-oecd
 The replication codes for my article published in Applied Economics 
 "Do green growth and technological innovation matter to infrastructure investments in the era of climate change? Global evidence"
+************************************************************************************************************************************************************
+Major data sources can be publically accessed below
+1. The OECD Green Growth database https://data-explorer.oecd.org/vis?lc=en&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_GG%40DF_GREEN_GROWTH&df[ag]=OECD.ENV.EPI&dq=AUS....&pd=2017%2C&to[TIME_PERIOD]=false
+2. Global infrastructure investments https://outlook.gihub.org/
+3. CO2 emissions are from https://databank.worldbank.org/source/world-development-indicators/preview/on 
+   
+Please find Table 1. Variables, codes, and definitions.
+Variable	Label	Source
+Infrastructure investment trend ($USD) – IIT	Infrastructure Investment Trend - IIT	https://outlook.gihub.org/
+CO2 emissions (kt) – CO2	Climate Change - CC	WDIs-WB
+Production-based CO2 productivity, GDP per unit of energy-related CO2 emission – PBCO2	Green growth – GG1	OECD statistics
+Demand-based CO2 productivity, GDP per unit of energy-related CO2 emissions – DBCO2	Green growth – GG2	OECD statistics
+Non-energy material productivity, GDP per unit of DMC – NEMP	Green growth – GG3	OECD statistics
+Environmental-adjusted multifactor productivity growth – EAMFP	Green growth – GG4	OECD statistics
+Mean population exposure to PM2.5 – MPEPM2.5	Green growth – GG5	OECD statistics
+Development of environment-related technologies, % all technologies – DET	Technological innovation – TI1	OECD statistics
+Relative advantage in environment-related technology – RAET	Technological innovation – TI2	OECD statistics
+Development of environment-related technologies, % inventions worldwide – DETI	Technological innovation – TI3	OECD statistics
+Development of environment-related technologies, inventions per capita – DETIPC	Technological innovation - – TI4	OECD statistics
+Environmentally related government R&D budget, % total government R&D – EGRDB	Environment-related expenditure – ERE1	OECD statistics
+National expenditure on environmental protection, % GDP – NEEP	Environment-related expenditure – ERE2	OECD statistics
+Environmentally related Official Development Assistance - ODA, % total ODA – EODA	Environment-related expenditure – ERE3	OECD statistics
+Environmentally related taxes, % GDP – ERT	Environmental-related taxes – ERT1	OECD statistics
+Environmentally related taxes, % total tax revenue – ERTT	Environmental-related taxes – ERT2	OECD statistics
+Energy-related tax revenue, % total environmental tax revenue – ERTR	Environmental-related taxes – ERT3	OECD statistics
+Road transport-related tax revenue, % total environmental tax revenue – RTRTA	Environmental-related taxes – ERT4	OECD statistics
 
 ************************************************************************************************************************************************************
 ************************************************************************************************************************************************************
@@ -21,7 +47,7 @@ To link to this article: https://doi.org/10.1080/00036846.2022.2125493
 
 ************************************************************************************************************************************************************
 ************************************************************************************************************************************************************
--> Intial processing steps
+******************************************************************************** Intial processing steps****************************************************
 ************************************************************************************************************************************************************
 ************************************************************************************************************************************************************
 use "H:\Infrastructure Investment and Green Growth - A cross-country study (Trinh, Squiers, McCord, Javed, Lo) for JPIF\Data\Merged_All.dta"
@@ -52,11 +78,11 @@ save "H:\Infrastructure Investment and Green Growth - A cross-country study (Tri
 clear
 ************************************************************************************************************************************************************
 ************************************************************************************************************************************************************
--> Merge all datasets together
--> generate id for each country
+******************************************************************************** Merge all datasets together************************************************
+********************************************************************************Generate id for each country************************************************
 ************************************************************************************************************************************************************
 ************************************************************************************************************************************************************
-use "H:\Infrastructure Investment and Green Growth - A cross-country study (Trinh, Squiers, McCord, Javed, Lo) for JPIF\Data\Merged_All.dta"
+use "H:\Infrastructure Investment and Green Growth - A cross-country study\Data\Merged_All.dta"
 generate 	id 	=	.						
 replace 	id 	=	1	if 	country 	==	"Angola"
 replace 	id 	=	2	if 	country 	==	"Argentina"
@@ -114,9 +140,9 @@ replace 	id 	=	53	if 	country 	==	"United Kingdom"
 replace 	id 	=	54	if 	country 	==	"United States"
 replace 	id 	=	55	if 	country 	==	"Uruguay"
 replace 	id 	=	56	if 	country 	==	"Viet Nam"
-save "H:\Infrastructure Investment and Green Growth - A cross-country study (Trinh, Squiers, McCord, Javed, Lo) for JPIF\Data\Merged_All.dta", replace
+save "H:\Infrastructure Investment and Green Growth - A cross-country study\Data\Merged_All.dta", replace
 clear
-use "H:\Infrastructure Investment and Green Growth - A cross-country study (Trinh, Squiers, McCord, Javed, Lo) for JPIF\Data\Gihub USD & %GDP.dta"
+use "H:\Infrastructure Investment and Green Growth - A cross-country study\Data\Gihub USD & %GDP.dta"
 generate 	id 	=	.						
 replace 	id 	=	1	if 	country 	==	"Angola "
 replace 	id 	=	2	if 	country 	==	"Argentina "
